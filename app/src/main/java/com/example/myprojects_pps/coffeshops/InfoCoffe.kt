@@ -1,5 +1,7 @@
 package com.example.myprojects_pps.coffeshops
 
+import com.example.myprojects_pps.R
+
 data class InfoCoffe(
     var images: Int,
     var titles: String,

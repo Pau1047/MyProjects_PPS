@@ -31,6 +31,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.myprojects_pps.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

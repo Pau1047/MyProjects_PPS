@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.coffeshops_pps.ui.theme.Purple80
+import com.example.myprojects_pps.ui.theme.Purple80
 
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
