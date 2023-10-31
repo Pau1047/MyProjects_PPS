@@ -24,13 +24,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.myprojects_pps.ui.theme.Purple40
 import com.example.myprojects_pps.ui.theme.Purple80
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Portada(){
+fun Portada(navController: NavHostController){
 
     Scaffold(bottomBar = ({ MyBottomNavigation() })) {
         Column(modifier =Modifier.fillMaxSize().background(Color.Green),
