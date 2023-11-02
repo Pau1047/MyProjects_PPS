@@ -13,6 +13,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.myprojects_pps.coffeshops.CoffeShops
+import com.example.myprojects_pps.elSol.ClaseInfo
+import com.example.myprojects_pps.myPhotos.MyPhotos
 import com.example.myprojects_pps.ui.theme.MyProjects_PPSTheme
 
 
@@ -25,9 +28,26 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "Portada"){
-                        composable("myPhotos"){}
-                        composable("coffeShops"){}
-                        composable("elSol"){}
+                        composable("Portada"){ Portada(navController)}
+                        composable("MyPhotos"){ MyPhotos()}
+                        composable("CoffeShops"){
+                            Surface(modifier = Modifier.fillMaxSize())
+                            {
+                                CoffeShops(navController)
+                            }
+                        }
+                        composable("elSol"){
+                            Surface(
+                                modifier = Modifier.fillMaxSize(),
+                                color = MaterialTheme.colorScheme.background
+                            ) {
+                                val navController = rememberNavController()
+                                NavHost(navController = navController,startDestination = "Portada"){
+                                    composable("Portada"){ com.example.myprojects_pps.elSol.Portada(navController)}
+                                    composable("ClaseInfo"){ ClaseInfo(navController) }
+                                }
+                            }
+                        }
                     }
 
                 }

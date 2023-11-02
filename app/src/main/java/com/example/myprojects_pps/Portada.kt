@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import com.example.myprojects_pps.elSol.Portada
 import com.example.myprojects_pps.ui.theme.Purple40
 import com.example.myprojects_pps.ui.theme.Purple80
 
@@ -34,8 +35,10 @@ import com.example.myprojects_pps.ui.theme.Purple80
 @Composable
 fun Portada(navController: NavHostController){
 
-    Scaffold(bottomBar = ({ MyBottomNavigation() })) {
-        Column(modifier =Modifier.fillMaxSize().background(Color.Green),
+    Scaffold(bottomBar = ({ MyBottomNavigation(navController) })) {
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Green),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
 
@@ -50,23 +53,23 @@ fun Portada(navController: NavHostController){
 
 
 @Composable
-fun MyBottomNavigation() {
+fun MyBottomNavigation(navController: NavHostController) {
     NavigationBar {
         NavigationBarItem(
             selected = false,
-            onClick = { /*TODO*/ },
+            onClick = {  },
             icon = { Icon(imageVector = Icons.Default.Person, contentDescription = "") },
             label = { Text("MyPhotos") })
 
         NavigationBarItem(
             selected = false,
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate("CoffeShops") },
             icon = { Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "") },
             label = { Text("CoffeeShops") })
 
         NavigationBarItem(
             selected = false,
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate("Portada")},
             icon = { Icon(imageVector = Icons.Default.Star, contentDescription = "") },
             label = { Text("ElSol") })
     }
