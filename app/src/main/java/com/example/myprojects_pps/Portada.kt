@@ -26,7 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import com.example.myprojects_pps.elSol.Portada
+import com.example.myprojects_pps.elSol.SolPortada
 import com.example.myprojects_pps.ui.theme.Purple40
 import com.example.myprojects_pps.ui.theme.Purple80
 
@@ -57,7 +57,7 @@ fun MyBottomNavigation(navController: NavHostController) {
     NavigationBar {
         NavigationBarItem(
             selected = false,
-            onClick = {  },
+            onClick = { navController.navigate("MyPhotos")},
             icon = { Icon(imageVector = Icons.Default.Person, contentDescription = "") },
             label = { Text("MyPhotos") })
 
@@ -69,7 +69,7 @@ fun MyBottomNavigation(navController: NavHostController) {
 
         NavigationBarItem(
             selected = false,
-            onClick = { navController.navigate("Portada")},
+            onClick = { navController.navigate("SolPortada")},
             icon = { Icon(imageVector = Icons.Default.Star, contentDescription = "") },
             label = { Text("ElSol") })
     }

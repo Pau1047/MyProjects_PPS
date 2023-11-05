@@ -56,6 +56,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.myprojects_pps.MyBottomNavigation
+import com.example.myprojects_pps.Portada
 import java.lang.Math.ceil
 import java.lang.Math.floor
 
@@ -65,11 +67,15 @@ import java.lang.Math.floor
 @Composable
 fun CoffeShops (navController: NavHostController) {
 
-    Scaffold(topBar = { MyTopAppBar() }) {
+    Scaffold(topBar = { MyTopAppBar() }, bottomBar =  { MyBottomNavigation(navController) },modifier = Modifier
+        .fillMaxSize()
+        .padding(top = 8.dp),
+        content = {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = it.calculateTopPadding())
+                .padding(top = it.calculateTopPadding()),
+
         ) {
 
             LazyColumn {
@@ -78,7 +84,7 @@ fun CoffeShops (navController: NavHostController) {
                 }
             }
         }
-    }
+    })
 }
 
 @Composable

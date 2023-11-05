@@ -1,5 +1,6 @@
 package com.example.myprojects_pps.myPhotos
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.content.res.Configuration.*
 import android.os.Bundle
@@ -9,7 +10,9 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,7 +22,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,16 +39,21 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.example.myprojects_pps.MyBottomNavigation
+import com.example.myprojects_pps.Portada
 import com.example.myprojects_pps.R
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyPhotos(){
-        var selectedImage by remember { mutableStateOf<ImageData?>(null) }
+fun MyPhotos(navController: NavHostController) {
+    var selectedImage by remember { mutableStateOf<ImageData?>(null) }
 
-        Column (modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 8.dp))
-        {
+    Scaffold(bottomBar = { MyBottomNavigation(navController) }, modifier = Modifier
+        .fillMaxSize()
+        .padding(top = 8.dp),
+        content = {
             LazyRow(
                 modifier = Modifier
                     .height(130.dp)
@@ -66,12 +76,14 @@ fun MyPhotos(){
                             .fillMaxSize()
                     )
                 }
-            } else  {
+            } else {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = Color.Transparent,
-                ) { } }
+                ) { }
+            }
         }
+    )
 }
 data class ImageData(
     @DrawableRes var photo: Int

@@ -29,27 +29,31 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = "Portada"){
                         composable("Portada"){ Portada(navController)}
-                        composable("MyPhotos"){ MyPhotos()}
+                        composable("MyPhotos"){
+                            Surface(modifier = Modifier.fillMaxSize())
+                        {
+                            MyPhotos(navController)}
+                        }
                         composable("CoffeShops"){
                             Surface(modifier = Modifier.fillMaxSize())
                             {
                                 CoffeShops(navController)
+
                             }
                         }
-                        composable("elSol"){
+                        composable("SolPortada"){
                             Surface(
                                 modifier = Modifier.fillMaxSize(),
                                 color = MaterialTheme.colorScheme.background
                             ) {
                                 val navController = rememberNavController()
-                                NavHost(navController = navController,startDestination = "Portada"){
-                                    composable("Portada"){ com.example.myprojects_pps.elSol.Portada(navController)}
+                                NavHost(navController = navController,startDestination = "SolPortada"){
+                                    composable("SolPortada"){ com.example.myprojects_pps.elSol.SolPortada(navController)}
                                     composable("ClaseInfo"){ ClaseInfo(navController) }
                                 }
                             }
                         }
                     }
-
                 }
             }
         }
